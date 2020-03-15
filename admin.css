@@ -1,0 +1,65 @@
+
+.body{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    background-image: url('App2/bg-interface-admin.jpg');
+}
+h1{
+    font-size: 2.5em;
+    color: white;
+    width: 50%;
+    margin: auto;
+    position: relative;
+    top: 100px;
+}
+.transparent{
+    width: 80%;
+    background-color: #3e3e3f56;
+    height: 69%;
+    border-radius: 5px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+}
+.conteneur{
+    width: 90%;
+    background-color: #f4f4f4;
+    height: 85%;
+    border-radius: 5px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+}
+.input{
+    width: 85%;
+    margin: auto;
+}
+input{
+    width: 90%;
+    height: 20%;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 5px;
+    border-color: none;
+    border: 2px solid #dedede;
+    background-color: #f8f8f8;
+}
+.submit{
+    
+    width: 85%;
+}
+#sub{
+    position: relative;
+    left: 315px;
+    width: 40%;
+    color: white;
+    background-color: #81c520;
+    font-size: 1.5em;
+    border-color: #81c520;
+}
+img{
+    position: relative;
+    left: 70px;
+    top: 20px;
+}
