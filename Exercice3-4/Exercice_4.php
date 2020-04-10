@@ -16,26 +16,15 @@ NB:
 
 <?php
 
-function decouperphrase($phrases){
-    return (preg_split("#[.!?]#",$phrase));
-}
-
-function commencemaj($phrase){
-    return (preg_match("#^[A-Z]#", $phrase));
-}
-
-function eliminespace($phrase){
-    return (preg_replace("#\s\s+#",' ', $phrase));
-}
 
 if(isset($_POST['valider'])){
-    $phrases = decouperphrase($_POST['text']);
+    $phrases = preg_split("#[.!?]#",$_POST['text']);
     
 
     $T=[];
 
     for($i =0; $i < count($phrases) ; $i++){
-        if(commencemaj($phrases[$i]) && eliminespace($phrases[$i]) && count($phrases[$i])<200){
+        if(preg_match("#^[A-Z]#", $phrases[$i]) && preg_replace("#\s\s+#",' ', $phrases) && count($phrases)<200){
             $T = $phrases;
 
         }
