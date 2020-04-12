@@ -1,0 +1,27 @@
+
+
+{
+
+"admin":[
+    {
+        "user":"bmd",
+        "password": "diarra"
+    },
+    {
+        "user":"mo",
+        "password": "diarra"
+    }
+    ],
+"joueur":[
+        {
+            "user":"bmdj",
+            "password": "diarra"
+        },
+        {
+            "user":"moj",
+            "password": "diarra"
+        }
+        ]
+
+
+}

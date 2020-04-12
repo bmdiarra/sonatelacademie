@@ -4,11 +4,9 @@ $C = $_SESSION['c'];
 
 ?>
 
-        <h2>
-			Exercice_2.<br />
-			
-		</h2>
-		<br/>
+        <h2>Exercice_2.<br /></h2>
+        <br/>
+        <p>Ecrire un programme qui permet de Créer un tableau Contenant les noms et les numéros des 12 mois de l'année en Français et en Anglais. Ensuite demander à l’utilisateur de choisir une langue puis vous affichez les mois sous forme de tableau HTML.</p>
 		<br/>
 
 <?php  ?>

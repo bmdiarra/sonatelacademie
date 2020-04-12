@@ -6,10 +6,11 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Formulaires</title>
+   <title>Projet PHP S A</title>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
    <link rel="stylesheet" href="style.css">
    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
         <div>
@@ -32,7 +33,8 @@ session_start();
             <?php 
             if(!empty($_SESSION['page'])){
                 echo "SESSION : ".$_SESSION['page'];
-                if($_SESSION['page']==1){ include("Miniprojet1.php");}
+                if($_SESSION['page']==1){ include("Page-admin.php");}
+                if($_SESSION['page']==2){ include("Page-joueur.php");}
                 if($_SESSION['page']==0){ include("MiniProjet.php");}
             }
             if(isset($_GET['exo'])){

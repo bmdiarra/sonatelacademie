@@ -1,9 +1,13 @@
 
-        <h2>
-			Exercice_5.<br />
-			
-		</h2>
-		<br/>
+        <h2>Exercice 5.<br /></h2>
+        <br/>
+        <p>
+Ecrire un programme qui permet de remplir un champ de type commentaire avec plusieurs numéros de téléphone. Extraire  l’ensemble des numéros de téléphones contenu dans le champ. Les numéros extraits seront stockés dans un Tableau associatif dont les clés sont les différents opérateurs. 
+NB:
+●Pour l’extraction on utilisera les expressions régulières
+●Les numéros doivent être valides.
+●Afficher le pourcentage de numéro de chaque opérateur 
+●Afficher le pourcentage de numéro invalide</p>
 		<br/>
 
         <form action="index.php?exo=5" method="post">

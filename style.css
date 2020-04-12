@@ -112,3 +112,9 @@ textarea{
     height: 300px;
     width: 50%;
 }
+
+/* Page de connexion */
+
+.body-projet{
+    background-image: url('Images/img-bg.jpg');
+}
