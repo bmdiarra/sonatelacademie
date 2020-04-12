@@ -1,12 +1,5 @@
 
 <p>PAGE ADMIN</p>
-<a href='Deconnexion.php'> DECONNEXION</a>
-
-
-<?php
-
- function deconnec(){
-        session_destroy();
-    }
-
-?>
+<?= $_SESSION['nom'] ?> <br/>
+<img src='<?= $_SESSION['image'] ?>' />
+<a href='Deconnexion.php'> DECONNEXION </a>

@@ -5,21 +5,25 @@
 "admin":[
     {
         "user":"bmd",
-        "password": "diarra"
+        "password": "diarra",
+        "picture":"Images/bmd.png"
     },
     {
         "user":"mo",
-        "password": "diarra"
+        "password": "diarra",
+        "picture":"Images/bmd.png"
     }
     ],
 "joueur":[
         {
             "user":"bmdj",
-            "password": "diarra"
+            "password": "diarra",
+            "picture":"Images/bmd.png"
         },
         {
             "user":"moj",
-            "password": "diarra"
+            "password": "diarra",
+            "picture":"Images/bmd.png"
         }
         ]
 

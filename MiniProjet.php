@@ -43,7 +43,6 @@
         
         $data = file_get_contents('admin.json');
         $T = json_decode($data);
-        echo $T->{'admin'}[0]->{'user'};
         $_SESSION['page'] = 0;    
     ?>
     <div class="form">
@@ -68,36 +67,21 @@
                     for($i=0;$i<count($T->{'admin'});$i++){
                         if($_POST['username'] == $T->{'admin'}[$i]->{'user'} && $_POST['password'] == $T->{'admin'}[$i]->{'password'}){
                             $_SESSION['page'] = 1;
-                            $_SESSION['nom']={'admin'}[$i]->{'user'};
+                            $_SESSION['nom']=$T->{'admin'}[$i]->{'user'};
+                            $_SESSION['image']=$T->{'admin'}[$i]->{'picture'};
                             header("Location: index.php" );
                         }
 
                         if($_POST['username'] == $T->{'joueur'}[$i]->{'user'} && $_POST['password'] == $T->{'joueur'}[$i]->{'password'}){
                             $_SESSION['page'] = 2;
-                            $_SESSION['nom']={'joueur'}[$i]->{'user'};
+                            $_SESSION['nom']=$T->{'joueur'}[$i]->{'user'};
+                            $_SESSION['image']=$T->{'admin'}[$i]->{'picture'};
                             header("Location: index.php" );
                         }
                     }
                 }
             }
             
-            /*if (isset($_POST['valider'])) {
-
-                if(!empty($_POST['username']) && !empty($_POST['password'])){
-                    for($i=0;$i<count($T);$i++){
-                        if($_POST['username'] == $T[$i][0] && $_POST['password'] == $T[$i][1]){
-                            $_SESSION['page'] = 1;
-                            header("Location: index.php" );
-                        }
-                    }
-                }
-            }*/
-
-            if (isset($_POST['inscrire'])) {
-                session_destroy();
-            }
-
-
             
         ?>
 
