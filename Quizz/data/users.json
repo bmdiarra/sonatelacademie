@@ -1,0 +1,18 @@
+[
+        {
+            "login":"admin",
+            "mdp":"admin",
+            "role":"admin",
+            "prenom":"Moussa",
+            "nom":"DIARRA",
+            "image":"../public/images/bmd.jpeg"
+        },
+        {
+            "login":"joueur",
+            "mdp":"joueur",
+            "role":"joueur",
+            "prenom":"bmd",
+            "nom":"Diarra",
+            "image":"../public/images/bmd.jpeg"
+        }
+]
