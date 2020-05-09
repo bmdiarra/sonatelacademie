@@ -13,7 +13,7 @@ hr{
 .form-controle{
     width: 60%;
     height: 10%;
-    padding: 10px;
+    padding: 25px;
 }
 .label{
     float: left;
@@ -69,12 +69,14 @@ hr{
   }
   .avatar-img{
       position: absolute;
-      left: 60%;
+      top: 155px;
+      left: 62%;
       bottom: 55%;
       width: 23%;
       height: 200px;
       border-radius: 70%;
       border: 5px solid #51bfd0;
+      
   }
 #avatar-texte{
     position: absolute;
@@ -84,7 +86,33 @@ hr{
     font-weight: bolder;
 
 }
+
 #blah{
-    width: 50px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
+
+.error-form {
+    color: red;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.avatar{
+    margin-top: 25px; 
+}
+
+.submitjoueur{
+    position: relative;
+    top: -75px;
+}
+
+.inscription{
+    overflow: scroll;
+}
+
+.avat-img{
+    margin: 1px 0% 0px 1%;
+}
+

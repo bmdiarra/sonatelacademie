@@ -169,3 +169,12 @@ a>li{ color: #818181;
     top: 25%;
     right: 5%;
 }
+
+.dynamic{
+    margin: 0px 10% 0px 10%;
+}
+
+.conteneur-connexion{
+    height: 50%;
+    padding-top: 50px;
+}

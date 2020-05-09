@@ -25,11 +25,13 @@
     background-color: none;
     position: relative;
     bottom: 30px;
+    top: 0px;
     width: 90%;
     height: 80%;
     margin: auto;
     border: 3px solid #989898;
     border-radius: 5px;
+    overflow: scroll;
 }
 .suivant{
     background-color: #f8f3f0;
@@ -57,4 +59,35 @@
     position: relative;
     left: 20%;
     top: 15%;
+}
+
+input{
+    width: 20%;
+    height: 30px;
+}
+
+form{
+    height: 15%;
+}
+
+.reponse{
+    /*height: 5%;*/
+}
+
+.inp{
+    height: 15px;
+    border:2px solid #3addd6;
+}
+
+.question{
+    color: #989898;
+}
+
+.txt{
+    margin: 1px 1% 0px 9%;
+}
+
+.label{
+    width: 80%;
+    margin: 1px 10% 0px 10%;
 }

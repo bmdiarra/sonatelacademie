@@ -1,0 +1,43 @@
+.question{
+    height: 100px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.nbpoint{
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.container{
+    width: 100%;
+}
+
+.name_list{
+    float: left;
+    width: 80%;
+}
+
+.radio{
+    float: left;
+    height: 30px;
+    width: 30px;
+    padding: 20px;
+}
+
+.checkbox{
+    float: left;
+    height: 30px;
+    width: 30px;
+    padding: 20px;
+}
+
+.titrelistequestion{
+    color: #51bfd0;
+    margin-left: 150px;
+}
+
+#add_name{
+    background-color: white;
+}
+

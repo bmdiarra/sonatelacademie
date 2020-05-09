@@ -113,6 +113,7 @@
     background-color: none;
     border: 2px solid #3addd6;
     border-radius: 6px;
+    overflow: scroll;
 }
 .score{
     float: left;
@@ -123,4 +124,79 @@
     background-color: white;
     text-shadow: 0px 0px 5px;
     box-shadow: 0px 0px 5px;
+}
+
+.btn-pagination{
+    width: 48%;
+    height: 65px;
+    float: left;
+    margin: 5px;
+}
+
+.link-suivant{
+    width: 30%;
+    height: 30px;
+    background-color: #3addd6;
+    border: #3addd6;
+    border-radius: 3px;
+    position: relative;
+    left: 73%;
+    top: 10px;
+    font-size: 20px;
+    text-shadow: 0px 0px 5px;
+    box-shadow: 0px 0px 5px;
+}
+
+.link-precedent{
+    width: 30%;
+    height: 30px;
+    background-color: #3addd6;
+    border: #3addd6;
+    border-radius: 3px;
+    position: relative;
+    left: 1%;
+    top: 10px;
+    font-size: 20px;
+    text-shadow: 0px 0px 5px;
+    box-shadow: 0px 0px 5px;
+}
+
+.ensemblebtn{
+    position: relative;
+}
+
+.ensemblequestion{
+    position: relative;
+    widows: 100%;
+    height: 400px;
+}
+
+.questionvaleur{
+    position: relative;
+    height: 125px;
+    background-color: #3addd6;
+    text-align: center;
+}
+
+.reponsevaleur{
+    position: relative;
+    height: 275px;
+    width: 75%;
+    background-color: aliceblue;
+    margin: 1px 0% 0px 13.5%;
+}
+
+input{
+    width: 20%;
+    height: 20px;
+    margin: 30px;
+}
+
+.inputtextejeu{
+    height: 30px;
+    margin-left: 270px; 
+}
+
+.asuiv{
+    margin: 1px 1% 0px 10px;
 }

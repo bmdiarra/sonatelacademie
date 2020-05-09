@@ -1,5 +1,5 @@
 
-            <div class="conteneur">
+            <div class="conteneur conteneur-connexion">
                 <div class="entete-form">
                     <span id="login-form">Login Form</span>
                 </div>
@@ -15,7 +15,7 @@
                     </div>
                     <div class="submit">
                         <input type="submit" name="connexion" value="Connexion" id="sub">
-                        <span class="lien-insc"><a href="inscriptionjoueur.php">S'inscrire pour jouer ?</a></span>
+                        <span class="lien-insc"><a href="?inscri=1">S'inscrire pour jouer ?</a></span>
                     </div>
                 </form>
             </div>

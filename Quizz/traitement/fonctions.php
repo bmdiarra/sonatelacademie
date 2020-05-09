@@ -1,7 +1,7 @@
 <?php
     //FONCTION POUR VERIFIER LES INFORMATIONS DE CONNEXION
 function verif_info_connexion($loginform,$mdpform){
-    $file=json_decode(file_get_contents('./data/users.json'));
+    $file=json_decode(file_get_contents('./data/utilisateurs.json'));
     foreach ($file as $value) {
         $log=$value->login;
         $pass=$value->mdp;
@@ -12,9 +12,20 @@ function verif_info_connexion($loginform,$mdpform){
     }
     return false;
 }
+
+function is_login_unique($loginform){
+    $file=json_decode(file_get_contents('./data/utilisateurs.json'));
+    foreach ($file as $value) {
+        $log=$value->login;
+        if ($log==$loginform) {
+            return false;
+        }
+    }
+    return true;
+}
     //FONCTION POUR VERIFIER LES INFORMATIONS DE CONNEXION
 function recup_info_user($loginform,$mdpform){
-     $file=json_decode(file_get_contents('./data/users.json'));
+     $file=json_decode(file_get_contents('./data/utilisateurs.json'));
     foreach ($file as $value) {
         $log=$value->login;
         $pass=$value->mdp;
@@ -53,9 +64,17 @@ function is_connect(){
     }
 }
 
-function getData($file="utiisateur"){
+function getData($file="utilisateurs"){
     $data=file_get_contents("../data/".$file.".json");
     $data=json_decode($data,true);
     return $data;
+}
+
+function listeJoueur($role="joueur"){
+    $file=json_decode(file_get_contents('./data/utilisateurs.json'));
+    foreach ($file as $value) {
+        $log=$value->login;
+    }
+    
 }
 ?>
