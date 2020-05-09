@@ -20,4 +20,12 @@ lien d'hebergement: http://bmdconception.alwaysdata.net/
 en tant que admin: login:admin  motdepasse:admin
 en tant que joueur: login:joueur motdepasse:joueur
 
+Les technologies utilises dans ce projet sont: HTML CSS JAVASCRIPT et PHP
+
+Durant tous le projet on rencontre des obstacles. Mais, avec les encadreurs les encadreurs et les camarades on y arrive a avancer. Au final nous avons acquis beaucoup de connaissances en ces langaes.
+Et actuellement les principales problemes sont:
+-Le design parfois pose probleme
+-Une fois sur la page d inscription joueur, il faut cliquer sur le logo pour retourner en arriere.
+-Si un joueur trouve un question cette question ne doit plus s afficher, mais il y a quelque probleme faisant que j ai le retirer.
+
 
