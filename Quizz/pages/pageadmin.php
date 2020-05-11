@@ -8,6 +8,12 @@ if (!isset($_SESSION['role'])) {
 
 ?>
 
+<style>
+    .inscription{
+        height: 100%;    
+    }
+</style>
+
 <script type="text/javascript"><!--
 $(document).ready(function () {  
 

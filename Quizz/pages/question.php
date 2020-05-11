@@ -66,7 +66,8 @@
                          $extra["reponse"][$j]["valeur"] = $_POST['rep'.($j+2)] ;
                      }
                      if(isset($_POST['in'.($j+2)])){
-                         $extra["reponse"][$j]["bon_resultat"] = $_POST['in'.($j+2)] ;
+                            $extra["reponse"][$j]["bon_resultat"] = $_POST['in'.($j+2)] ;
+                         
                      }else{
                          $extra["reponse"][$j]["bon_resultat"] = "off" ;
                      }

@@ -12,29 +12,19 @@ $indexQuestion = 0;
             $message="Tous les champs sont obligatoires";
         }else {
                 if (verif_info_connexion($login, $mdp)) {
-                    if ($login=="admin") {
-                        $infos_admin[]= recup_info_user($login, $mdp);
-                        foreach ($infos_admin as $value) {
-                            $_SESSION['prenom']=$value->prenom;
-                            $_SESSION['nom']=$value->nom;
-                            $_SESSION['image']=$value->image;
-                            $_SESSION['role']=$value->role;
-                        }
-                        header('location:?inscri=2&admin=listequestion');
-                        //header('location:../Quizz/pages/pageadmin.php');
-                        
+                    $info_connec[] = recup_info_user($login, $mdp);
+                    foreach($info_connec as $value){
+                        $_SESSION['prenom']=$value->prenom;
+                        $_SESSION['nom']=$value->nom;
+                        $_SESSION['image']=$value->image;
+                        $_SESSION['role']=$value->role;
+
                     }
-                    if ($login=="joueur") {
-                        $infos_joueur[]= recup_info_user($login, $mdp);
-                        foreach ($infos_joueur as $value) {
-                            $_SESSION['prenom']=$value->prenom;
-                            $_SESSION['nom']=$value->nom;
-                            $_SESSION['image']=$value->image;
-                            $_SESSION['role']=$value->role;
-                            $_SESSION['score']=$value->score;
-                        }
+                    if($_SESSION['role'] == "admin"){
+                        header('location:?inscri=2&admin=listequestion');
+                    }
+                    if($_SESSION['role'] == "joueur"){
                         header("location:?inscri=3&page=1");
-                        //header('location:../Quizz/pages/joueur.php');
                     }
                 }else {
                        $message="Login ou mot de passe Incorrect";

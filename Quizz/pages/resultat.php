@@ -19,10 +19,46 @@ input{
 
     <?php 
     
-    $file=json_decode(file_get_contents('./data/question.json'));
+  /*  $file=json_decode(file_get_contents('./data/question.json'));
+    $nbrequestion = json_decode(file_get_contents('./data/nbrequestion.json'));
+
+*/
+
+
+    $questionjoueur=json_decode(file_get_contents('./data/question.json'));
+
+    $file2=json_decode(file_get_contents('./data/utilisateurs.json'));
+    $nbrequestion = json_decode(file_get_contents('./data/nbrequestion.json'));
+
+   // $file[] = [];
+    $tableaujoueur[] = [];
+    $k=0;
+    for($j=0 ; $j<count($file2) ; $j++){
+        if($_SESSION['prenom'] == $file2[$j]->prenom){
+            //$tableaujoueur[] = $file2[$j]->questiontrouve;
+            $k=$j;
+        }
+    }
+
+    for($i=0 ; $i<count($questionjoueur) ; $i++){
+        $trouve = 0;
+       for($j=0 ; $j<count($file2[$k]->questiontrouve) ; $j++){
+           
+           if($questionjoueur[$i]->id == $file2[$k]->questiontrouve[$j]){  
+                $trouve = 1;
+           } 
+       }  
+       if($trouve == 0){
+          $file[] = $questionjoueur[$i] ;
+       }
+    }
+
+
+
+/*
                             
-    for($i=0;$i<4;$i++){
-        for($j=0;$j<4;$j++){
+    for($i=0;$i<$nbrequestion;$i++){
+        for($j=0;$j<count($file[$i]->reponse);$j++){
             if(isset($_POST['radio'.($i*10+$j)]) || isset($_POST['checkbox'.($i*10+$j)])){
             if($_POST['radio'.($i*10+$j)] == "on" || $_POST['checkbox'.($i*10+$j)] == "on"){
                
@@ -36,12 +72,36 @@ input{
             }
             
         }
+    }*/
+
+
+    for($i=0;$i<count($file);$i++){
+        for($j=0;$j<count($file[$i]->reponse);$j++){
+            if(isset($_POST['radio'.($i*10+$j)]) || isset($_POST['checkbox'.($i*10+$j)])){
+            if(isset($_POST['radio'.($i*10+$j)])){
+                if($_POST['radio'.($i*10+$j)] == "on"){
+                    $_SESSION['donnee'.($i*10+$j)] = $file[$i]->reponse[$j]->valeur ;
+                }
+            }
+
+            if(isset($_POST['checkbox'.($i*10+$j)])){
+
+                if($_POST['checkbox'.($i*10+$j)] == "on"){
+                    $_SESSION['donnee'.($i*10+$j)] = $file[$i]->reponse[$j]->valeur ;
+                }
+            }
+
+            }
+            if(isset($_POST['txt'.$i])){
+                $_SESSION['donnee'.($i+100)] = $_POST['txt'.$i] ;
+            }
+        }
     }
     ?>
 
     <div >
     <?php
-    for($i=0 ; $i<count($file) ; $i++){
+    for($i=0 ; $i<$nbrequestion ; $i++){
     ?>
         <div>
         <h4><?= ($i+1)." . ".$file[$i]->question ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= " Score: ".$file[$i]->point ?></h4>
@@ -62,7 +122,7 @@ input{
                     <?php 
                         if( $file[$i]->reponse[$j]->bon_resultat == "on" && empty($_SESSION['donnee'.($i*10+$j)]) ){
                             if(isset($_SESSION['trouve'.($i*10+$j)])){
-                            $_SESSION['trouve'.($i*10+$j)] == 1; 
+                            $_SESSION['trouve'.($i*10+$j)] = 1; 
                             }
                     ?>
                     <h3 style="color:red">X</h3>
@@ -72,7 +132,7 @@ input{
 
                     <?php 
                         if(isset($_SESSION['donnee'.($i*10+$j)]) && $file[$i]->reponse[$j]->bon_resultat != "on" && $_SESSION['donnee'.($i*10+$j)] == $file[$i]->reponse[$j]->valeur){
-                            $_SESSION['trouve'.($i*10+$j)] == 1;
+                            $_SESSION['trouve'.($i*10+$j)] = 1;
                     ?>
                     <h3 style="color:red">X</h3>
                     <?php
@@ -97,7 +157,7 @@ input{
                 
                      {
                          if(isset($_SESSION['trouve'.($i*10+$j)])){
-                        $_SESSION['trouve'.($i*10+$j)] == 1;
+                        $_SESSION['trouve'.($i*10+$j)] = 1;
                          }
                     ?>
                     <h3 style="color:red">X</h3>
@@ -124,7 +184,7 @@ input{
                     ?>
                     <?php 
                         if(isset($_SESSION['donnee'.($i+100)]) &&  $_SESSION['donnee'.($i+100)] != $file[$i]->reponse[0]->valeur){
-                            //$_SESSION['trouve'.($i+100)] == 1;
+                            $_SESSION['trouve'.($i+100)] = 1;
                     ?>
                     <h3 style="color:red">X</h3>
                     <label class="labtxt"><?= $_SESSION['donnee'.($i+100)] ?></label><br/>
@@ -198,18 +258,25 @@ input{
 
     ?>
 
-   <h1 style="color: green; text-align: center;"> SCORE: <?= $scores." / ".$scoretot ?> </h1>
-
    <?php
-   //$file2=json_decode(file_get_contents('./data/utilisateurs.json'));
+   $file2=json_decode(file_get_contents('./data/utilisateurs.json'));
    for($i=0; $i<count($file2) ; $i++){
+       
        if(isset($file2[$i]) && $_SESSION['prenom'] == $file2[$i]->prenom ){
+       // echo $_SESSION['prenom'];   
+        //echo $file2[$i]->prenom;
+          $cor = $file2[$i]->score;
            if($file2[$i]->score < $scores){
+                echo "super3";
                 $file2[$i]->score = $scores ;
+                $cor = $file2[$i]->score;
            }
        }
    }
-   
+
+?>
+   <h1 style="color: green; text-align: center;"> SCORE: <?= $cor." / ".$scoretot ?> </h1>
+  <?php 
    $json_data = json_encode($file2);
     file_put_contents('./data/utilisateurs.json', $json_data);
    ?>

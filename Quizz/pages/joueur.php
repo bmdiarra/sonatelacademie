@@ -26,7 +26,9 @@ if(isset($_POST['precedent']) || isset($_POST['suivant'])){
                         <div class="pp"><img src="<?= "./public/images/".$_SESSION['image'] ?>" alt="" srcset=""></div>
                         <span id="prenom"><?= $_SESSION['prenom'] ?></span>
                         <span id="nom"><?= $_SESSION['nom'] ?></span>
+                        <?php if(isset($_SESSION['score'])){?>
                         <span id="score"><?= $_SESSION['score'] ?></span>
+                        <?php } ?>
                     </div>
                     <div class="text">
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ<br></span>
@@ -40,16 +42,17 @@ if(isset($_POST['precedent']) || isset($_POST['suivant'])){
                     <div class="question">
                     
                         <?php
-                            if($_GET['page'] == 1){
+                        $nbrequestion = json_decode(file_get_contents('./data/nbrequestion.json'));
+                            if($_GET['page'] <= $nbrequestion){
                                 require_once("jeu.php");
-                            }
+                            }/*
                             if($_GET['page'] == 2){
                                 require_once("jeu.php");
                             }
                             if($_GET['page'] == 3){
                                 require_once("jeu.php");
-                            }
-                            if($_GET['page'] == 4){
+                            }*/
+                            if($_GET['page'] > $nbrequestion){
                                 require_once("resultat.php");
                             }
 

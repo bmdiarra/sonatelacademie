@@ -7,21 +7,70 @@
     font-size: 20px;
     margin-left: 120px;
 }
+
+.btn_quitter{
+    background-color: red;
+    color: white;
+    height: 40px;
+    width: 110px;
+    font-size: 20px;
+    margin-left: 43%;
+}
 </style>
 
 <div class="ensemblequestion">
                         
                         <?php
                          
-                            $file=json_decode(file_get_contents('./data/question.json'));
+                            $questionjoueur=json_decode(file_get_contents('./data/question.json'));
+
                             $file2=json_decode(file_get_contents('./data/utilisateurs.json'));
+                            $nbrequestion = json_decode(file_get_contents('./data/nbrequestion.json'));
+
+                           // $file[] = [];
+                            $tableaujoueur[] = [];
+                            $k=0;
+                            for($j=0 ; $j<count($file2) ; $j++){
+                                if($_SESSION['prenom'] == $file2[$j]->prenom){
+                                    //$tableaujoueur[] = $file2[$j]->questiontrouve;
+                                    $k=$j;
+                                }
+                            }
+
+                            for($i=0 ; $i<count($questionjoueur) ; $i++){
+                                $trouve = 0;
+                               for($j=0 ; $j<count($file2[$k]->questiontrouve) ; $j++){
+                                   
+                                   if($questionjoueur[$i]->id == $file2[$k]->questiontrouve[$j]){  
+                                        $trouve = 1;
+                                   } 
+                               }  
+                               if($trouve == 0){
+                                  $file[] = $questionjoueur[$i] ;
+                               }
+                            }
+
+                           /* print_r($file);
+                            echo "-------->"; */
+                            //print_r($questionjoueur);
                             
-                            for($i=0;$i<4;$i++){
-                                for($j=0;$j<4;$j++){
+                          //  print_r($file[0]);
+                            for($i=0;$i<count($file);$i++){
+                                for($j=0;$j<count($file[$i]->reponse);$j++){
                                     if(isset($_POST['radio'.($i*10+$j)]) || isset($_POST['checkbox'.($i*10+$j)])){
-                                    if($_POST['radio'.($i*10+$j)] == "on" || $_POST['checkbox'.($i*10+$j)] == "on"){
-                                        $_SESSION['donnee'.($i*10+$j)] = $file[$i]->reponse[$j]->valeur ;
+                                    if(isset($_POST['radio'.($i*10+$j)])){
+                                        if($_POST['radio'.($i*10+$j)] == "on"){
+                                            $_SESSION['donnee'.($i*10+$j)] = $file[$i]->reponse[$j]->valeur ;
+                                        }
                                     }
+
+                                    if(isset($_POST['checkbox'.($i*10+$j)])){
+
+                                        if($_POST['checkbox'.($i*10+$j)] == "on"){
+                                            $_SESSION['donnee'.($i*10+$j)] = $file[$i]->reponse[$j]->valeur ;
+                                        }
+                                    }
+
                                     }
                                     if(isset($_POST['txt'.$i])){
                                         $_SESSION['donnee'.($i+100)] = $_POST['txt'.$i] ;
@@ -45,23 +94,12 @@
                             $indiceDepart = ($pageActuelle - 1) * NOMBREVALEURPARPAGE ;
                             $indiceDeFin  = $indiceDepart + NOMBREVALEURPARPAGE - 1 ;
 
-                            for($i = $indiceDepart ; $i <= $indiceDeFin ; $i++){
+                                
 
-                                $trouve = 0;
-                                for($k=0 ; $k<count($file2) ; $k++){
-                                   
-                                    if(isset($file2[$k]->prenom) && $_SESSION['prenom'] == $file2[$k]->prenom){
-                                        
-                                        for($l=0 ; $l<count($file2[$k]->questiontrouve) ; $l++){
-                                            if($file[$i]->id == $file2[$k]->questiontrouve[$l]){
-                                                //echo "superl";
-                                                //$trouve = 1;
-                                                $i++;
-                                            }
-                                        }
-                                    }
-                                }
-                               // if($trouve == 0){
+
+
+                            for($i = $indiceDepart ; $i <= $indiceDeFin ; $i++){
+                            
                         ?>
                             
                             <form action="index.php?inscri=3&page=<?= ($_GET['page']+1) ?>" method="POST"> 
@@ -123,11 +161,12 @@
                             
                             <div class="btn-pagination">
                                     <?php
+                                        
                                         for($page=1 ; $page <= $nbrePages ; $page++){
-                                            if($page==$_GET['page'] && $_GET['page'] < 3){
+                                            if($page==$_GET['page'] && $_GET['page'] < $nbrequestion){
                                             echo '<input type="submit" class="btn_submit" value="suivant" name="submitjeu">';
                                             }
-                                            if($page==$_GET['page'] && $_GET['page'] == 3){
+                                            if($page==$_GET['page'] && $_GET['page'] == $nbrequestion){
                                                 ?>
                                                 <input type="submit" class="btn_submit" name="submitjeu" value="terminer">
                                                 <?php
@@ -136,7 +175,7 @@
                                     ?>
                             </div>
 
-                            <input type="submit" class="btn_submit" name="quitter" onclick="this.form.action='index.php?inscri=3&page=4'" value="quitter">
+                            <input type="submit" class="btn_quitter" name="quitter" onclick="this.form.action='index.php?inscri=3&page=4'" value="quitter">
 
                             </form>
 
